@@ -1,7 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Projects setting  
-  In the project, I used some libraries to achieve this, it's an exercise to get into React practice (we need to install them through npm or yarn !).
+  In the project, I used some libraries to achieve it, it's an exercise to get into React practice (we need to install them through npm or yarn !).
 
  - <b>fakers</b> : a _JavaScript library_ for generating fake data 
  - <b>json-server</b> : JSON Server to allow quickly spin up a fake REST API
