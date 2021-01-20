@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Table } from 'react-bootstrap'
 import Button from 'react-bootstrap/Button';
 import paginate from 'paginate-array';
+import { Spinner } from 'react-bootstrap';
 import avatars from '../assets/images/av-customers.jpg'
 import { USER_URL} from './helpers'
    
@@ -15,6 +16,7 @@ class TableUsersUI extends Component {
         super(props);
         this.state = {
             show : false,
+            loading : true, 
             user : '',           
             size: 5,
             page: 1,
@@ -45,27 +47,13 @@ class TableUsersUI extends Component {
                const currPage = paginate(users, page, size);
                this.setState({
                   ...this.state,
+                  loading : false, 
                   users,
                   initialUsers: users,
                   currPage
               });               
         })  
-
-        /*
-      const url = USER_URL; 
-      console.log('url',USER_URL);
-      fetch(USER_URL)
-      .then(res => res.json())
-      .then(
-        (result) => {
-       
-            console.log(result)
-          },
-   
-        (error) => {
-           console.log(error)
-        }
-      )*/
+ 
     } 
 
     async  handleShow(id) {        
@@ -145,9 +133,7 @@ class TableUsersUI extends Component {
              searchField : '',
              users,
              currPage
-       });    
-       
-       
+       }); 
   }
 
   render() {       
@@ -171,7 +157,7 @@ class TableUsersUI extends Component {
         </form>        
         </div>
  
-        {currPage &&
+        
           <Table striped bordered hover size="sm"  width="60%" className="table-shadow">
                 <thead className="thead-dark ">
                    <tr>
@@ -183,8 +169,11 @@ class TableUsersUI extends Component {
                             <th>  </th>
                    </tr>
                 </thead>
+                
+                
                 <tbody>
-                  { currPage.data.map(row=> (                                 
+                 {currPage &&
+                   currPage.data.map(row=> (                                 
                          <tr key={row.id}>
                             <td>{row.firstname}</td>
                             <td>{row.lastname}</td>
@@ -195,8 +184,26 @@ class TableUsersUI extends Component {
                                  <Button variant="info"  size="sm"  onClick={() => this.openUserPage(row)}>Edit</Button>                                                          
                               </td>
                           </tr>   
-                    ))}                    
+                    ))}                                      
+
+                    <tr>
+                            <td colSpan="6" className="sp-loading">
+                               {this.state.loading &&  
+                                <Button variant="success" disabled>
+                                        <Spinner
+                                            as="span"
+                                            animation="grow"
+                                            size="sm"
+                                            role="status"
+                                            aria-hidden="true"
+                                        />
+                                        Loading...
+                                </Button>
+                              }                              
+                           </td>                            
+                    </tr>  
                   </tbody>
+                  
                   <tfoot>                  
                     <tr>
                       <td colSpan="5">                        
@@ -209,9 +216,8 @@ class TableUsersUI extends Component {
                       </td>                       
                     </tr> 
                   </tfoot>
-             </Table>  
-            }
-                                          
+                    
+             </Table>                     
               </>
       );
     }

@@ -341,3 +341,12 @@ p.company {
   border-radius: 50%;
   cursor: pointer;
 }
+
+td.sp-loading {
+      text-align: center; 
+    vertical-align: middle;
+ }
+
+td.sp-loading .btn-success{
+  width: 10%;
+}
