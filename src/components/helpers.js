@@ -1,0 +1,4 @@
+//helpers.js
+export const USER_URL = process.env.REACT_APP_JSON_SERVER_HEROKU_USERS_URL
+export const PRODUCTS_URL = process.env.REACT_APP_JSON_SERVER_HEROKU_PRODUCTS_URL
+export const MAPBOXGL_ACCESSTOKEN = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN

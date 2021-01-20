@@ -5,15 +5,8 @@ import Card from 'react-bootstrap/Card'
 import TableUI from './TableUI'
 import Button from 'react-bootstrap/Button'
 import ReactMapGL, {Marker} from 'react-map-gl';
-
-const mapboxgl_accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
-
-const geolocateStyle = {
-  float: 'left',
-  margin: '50px',
-  padding: '10px'
-};
-
+import { PRODUCTS_URL , MAPBOXGL_ACCESSTOKEN} from './helpers'
+ 
 class UserUI extends Component {
 
     constructor(props) {        
@@ -23,7 +16,7 @@ class UserUI extends Component {
             latitude: Number(this.address.latitude),
             longitude: Number(this.address.longitude),
             zoom: 3            
-        } ;
+        };
         this.state = {
             user : props.location.state, 
             products:[], 
@@ -43,7 +36,7 @@ class UserUI extends Component {
             zoom: 3            
         }         
 
-        axios.get(`http://localhost:3000/products/?userId=${this.props.match.params.id}`)
+        axios.get(PRODUCTS_URL+`/?userId=${this.props.match.params.id}`)
         .then(res => {                
               const products = res.data;  
               this.setState({products, viewport});                             
@@ -123,7 +116,7 @@ class UserUI extends Component {
                             <ReactMapGL 
                                                 width="40vw"
                                                 height="20vw"
-                                                mapboxApiAccessToken={mapboxgl_accessToken}
+                                                mapboxApiAccessToken={MAPBOXGL_ACCESSTOKEN}
                                                 mapStyle="mapbox://styles/mapbox/streets-v11"
                                                  {...this.viewport}
                                      >

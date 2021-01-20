@@ -6,7 +6,8 @@ import { Table } from 'react-bootstrap'
 import Button from 'react-bootstrap/Button';
 import paginate from 'paginate-array';
 import avatars from '../assets/images/av-customers.jpg'
-  
+import { USER_URL} from './helpers'
+   
 
 class TableUsersUI extends Component {
 
@@ -32,24 +33,46 @@ class TableUsersUI extends Component {
         
     }
 
-    componentDidMount() {
-       
-        axios.get(`http://localhost:3000/users`)
-        .then(res => {                
-               const users = res.data;
+    componentDidMount() {      
+      
+        axios.request({
+            method: "get",
+            url: USER_URL
+        })        
+        .then((res) => {                
+               const users = res.data;               
                const { page, size } = this.state;
                const currPage = paginate(users, page, size);
-              this.setState({
+               this.setState({
                   ...this.state,
                   users,
                   initialUsers: users,
                   currPage
               });               
-        }) 
+        })  
+
+        /*
+      const url = USER_URL; 
+      console.log('url',USER_URL);
+      fetch(USER_URL)
+      .then(res => res.json())
+      .then(
+        (result) => {
+       
+            console.log(result)
+          },
+   
+        (error) => {
+           console.log(error)
+        }
+      )*/
     } 
 
-    async  handleShow(id) {               
-        await axios.get(`http://localhost:3000/users/${id}`)
+    async  handleShow(id) {        
+      await axios.request({
+        method: "get",
+        url: USER_URL+`/${id}`        
+      })  
         .then(res => {                
                const user = res.data;                                 
                this.setState({
