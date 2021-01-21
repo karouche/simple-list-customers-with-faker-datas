@@ -28,3 +28,4 @@ You will also see any lint errors in the console.
 ### `Deployement`
 
 a demo can be found here : https://customers-sales-demo.netlify.app/
+the resources users and products are respectively loaded from https://json-server-consumers.herokuapp.com/users and https://json-server-consumers.herokuapp.com/products
