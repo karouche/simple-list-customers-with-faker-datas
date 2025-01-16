@@ -3,32 +3,32 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.8",
-    "@testing-library/react": "^11.2.2",
-    "@testing-library/user-event": "^12.6.0",
-    "axios": "^0.21.1",
-    "bootstrap": "^4.5.3",
-    "faker": "^5.1.0",
-    "json-server": "^0.16.3",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
+    "@testing-library/user-event": "^14.5.2",
+    "axios": "^1.7.9",
+    "bootstrap": "^5.3.3",
+    "faker": "^5.5.3",
+    "json-server": "^1.0.0-beta.3",
+    "mapbox-gl": "^2.15.0",
+    "maplibre-gl": "^5.0.1",
     "paginate-array": "^2.1.0",
-    "prop-types": "^15.7.2",
-    "react": "^17.0.1",
-    "react-bootstrap": "^1.4.0",
-    "react-dom": "^17.0.1",
-    "react-lazyload": "^3.1.0",
-    "react-map-gl": "^5.2.5",
-    "react-paginate": "^7.0.0",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.1",
-    "web-vitals": "^0.2.4"
+    "prop-types": "^15.8.1",
+    "react": "^18.3.1",
+    "react-bootstrap": "^2.10.7",
+    "react-dom": "^18.3.1",
+    "react-map-gl": "^7.1.8",
+    "react-paginate": "^8.2.0",
+    "react-router-dom": "^5.3.4",
+    "react-scripts": "^5.0.1",
+    "simple-list-customers-with-faker-datas": "file:",
+    "web-vitals": "^4.2.4"
   },
   "scripts": {
-    "start": "set PORT=4200 && react-scripts start",
+    "start": "set NODE_OPTIONS=--openssl-legacy-provider && set PORT=4200 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "gen-customers": "node ./server/gen-customers.js > ./server/dbcustomers.json",
-    "server-customers": "json-server --watch ./server/dbcustomers.json"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -47,5 +47,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   }
 }
