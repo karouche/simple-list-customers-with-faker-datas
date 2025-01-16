@@ -1,8 +1,8 @@
 import './App.css';
-import { BrowserRouter as Router, Route , Switch} from 'react-router-dom'
-import TableUsersUI from './components/TableUsersUI'
-import UserUI from './components/UserUI'
-import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import TableUsersUI from './components/TableUsersUI';
+import UserUI from './components/UserUI';
+import React from 'react';
 
 function App() {
   return (

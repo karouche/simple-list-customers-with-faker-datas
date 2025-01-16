@@ -1,3 +1,4 @@
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Projects setting  
@@ -10,12 +11,16 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
  - <b>react-map-api</b> : This component allows to integrate the Google Maps API provided by https://www.mapbox.com/, a public token from mapbox is used in the current project.
   
 
-### `npm  run server-customers`
+### `npm  run server-customers or use  the customers-data-api project  `
 
+#### `npm  run server-customers` 
 Runs the json-server and expose *users*  and *products* services on http://localhost:3000.
 We may regenerate the datas with : <b>npm run gen-consumers</b>, this will generate a  *dbconsumers.json* file in the <b>server</b> folder.
 Once the json server is launched (with the command above!), our "db consumers" will be exposed through theses urls  : 
-http://localhost:3000/users  & http://localhost:3000/products
+http://localhost:3000/users  & http://localhost:3000/products 
+
+#### `use customers-data-api` 
+ just download and launch the project : 	https://github.com/karouche/customers-data-api  
 
 ### `npm start`
 
@@ -27,5 +32,6 @@ You will also see any lint errors in the console.
 
 ### `Deployement`
 
-a demo can be found here : https://customers-sales-demo.netlify.app/
-the resources users and products are respectively loaded from https://json-server-consumers.herokuapp.com/users and https://json-server-consumers.herokuapp.com/products
+a demo can be found here : [https://customers-sales-demo.netlify.app/](https://simple-list-customers-with-faker-data.netlify.app/)
+the resources users and products are respectively loaded from [https://json-server-consumers.herokuapp.com/users](https://consumers-data-api.netlify.app/users) and [https://json-server-consumers.herokuapp.com/products](https://consumers-data-api.netlify.app/products)
+
